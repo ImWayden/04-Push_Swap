@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <limits.h>
 # include "push_swap.h"
 # include "Libft/header/libft.h"
 # include "Libft/header/ft_printf.h"
 # include <ctype.h>
+# include <stdarg.h>
 
 typedef struct s_stack
 {
@@ -24,19 +24,40 @@ typedef struct s_stack
     int top;
     int index;
     int nb_rev;
+    int max;
+    int min;
     char letter;
 }   t_stack;
 
+typedef struct s_moves
+{
+    int nb_ra;
+    int nb_rb;
+    int nb_rra;
+    int nb_rrb;
+    int nb_rr;
+    int nb_rrr;
+    int ra_rb;
+	int rra_rrb;
+	int ra_rrb; 
+	int rra_rb;
+    int mincost;
+}   t_moves;
+
+int ft_min(int count, ...);
 int ft_abs(int n);
-void verify(t_stack *b);
+void choose_rotate(t_stack *s, int nb_rev);
 void error_manager(t_stack *a, t_stack *b, int error);
 void push(t_stack *stackfrom, t_stack *stackto);
 void swap(t_stack *stack);
 void rotate(t_stack *stack,int rr);
 void rev_rotate(t_stack *s,int rrr);
-void order_b(t_stack *b);
 int nb_rev(int index, int top);
-void launch_sort(t_stack *a,t_stack *b);
 void print_stacks(t_stack *a, t_stack *b);
+void basic_sort(t_stack *a,t_stack *b);
+void set_min_max(t_stack *b,long long int element);
+void apply_rotate(t_stack *a,t_stack *b,t_moves *moves);
+void short_sort(t_stack *a);
+void short_sort2(t_stack *a,t_stack *b);
 
 #endif

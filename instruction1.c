@@ -18,7 +18,6 @@ void push(t_stack *from, t_stack *to)
 
     i = -1;
     to->stack[to->top+1] = from->stack[from->top];
-    //printf("\n%d %d %d\n",to->stack[to->top],from->stack[from->top],from->top);
     from->stack[from->top] = 0;
     from->top--;
     to->top++;
@@ -77,10 +76,10 @@ void rev_rotate(t_stack *s,int rrr)
     }
 }
 
-void choose_rotate(t_stack *s, int nb_rev, int i)
+void choose_rotate(t_stack *s, int nb_rev)
 {
-    //printf("choose rotate %c start\n",s->letter);
-    //printf("%c index = %d\n",s->letter,s->index);
+    int i;
+    i = 0;
     while(i < nb_rev)
     {
         if(s->index >= nb_rev)
@@ -89,5 +88,4 @@ void choose_rotate(t_stack *s, int nb_rev, int i)
             rev_rotate(s,0);
         i++;  
     }
-    //printf("choose rotate %c end\n",s->letter);
 }

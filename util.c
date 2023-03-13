@@ -6,7 +6,7 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:24:48 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/11 20:05:19 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/13 13:14:21 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,42 @@ int ft_abs(int n)
     return (0);
 }
 
+void set_min_max(t_stack *b,long long int element)
+{
+    if(element == 2147483648 && b->stack[0] > b->stack[1])
+    {
+        b->min = b->stack[1];
+        b->max = b->stack[0];
+    }
+    else if (element == 2147483648 && b->stack[0] < b->stack[1])
+    {
+        b->min = b->stack[0];
+        b->max = b->stack[1];
+    }    
+    else if(element < b->min)
+        b->min = (int)element;
+    else if(element > b->max)
+        b->max = (int)element;
+}
+
+int ft_min(int count, ...) {
+    va_list args;
+    va_start(args, count);
+
+    int min_val = va_arg(args, int);
+    int i = 1;
+    while (i < count) 
+    {
+        int val = va_arg(args, int);
+        if (val < min_val) {
+            min_val = val;
+        }
+        i++;
+    }
+    va_end(args);
+    return min_val;
+}
+
 int nb_rev(int index, int top)
 {
     if(index < top/2)
@@ -28,12 +64,6 @@ int nb_rev(int index, int top)
     else
         return(top - index);
     return(0);
-}
-
-void verify(t_stack *b)
-{
-    if(b->stack[b->top] < b->stack[b->top-1])
-        swap(b);
 }
 
 void print_stacks(t_stack *a, t_stack *b)
@@ -46,10 +76,16 @@ void print_stacks(t_stack *a, t_stack *b)
 
 void error_manager(t_stack *a, t_stack *b, int error)
 {
-    (error == 1 && ft_printf("Error malloc stack a\n") && (free(a->stack),1));
-    (error == 2 && ft_printf("Error malloc stack b\n") && ((free(a->stack),1),free(b->stack),1));
-    (error == 3 && ft_printf("Error Int Overflow in Atoi\n") && (free(a->stack),free(b->stack),1));
-    (error == 4 && ft_printf("Error not only numerical arguments\n") && (free(a->stack),free(b->stack),1));
-    (error == 5 && ft_printf("Error at least one number appears 2 time in the stack\n") && (free(a->stack),free(b->stack),1));
-    (error == 6 && ft_printf("Stack a already sorted\n") && (free(a->stack),free(b->stack),1));
+    (error == 1 && ft_printf("Error malloc stack a\n") 
+    && (free(a->stack),1));
+    (error == 2 && ft_printf("Error malloc stack b\n") 
+    && ((free(a->stack),1),free(b->stack),1));
+    (error == 3 && ft_printf("Error Int Overflow in Atoi\n") 
+    && (free(a->stack),free(b->stack),1));
+    (error == 4 && ft_printf("Error not only numerical arguments\n") 
+    && (free(a->stack),free(b->stack),1));
+    (error == 5 && ft_printf("Error duplicate number\n") 
+    && (free(a->stack),free(b->stack),1));
+    (error == 6 && ft_printf("Stack a already sorted\n") 
+    && (free(a->stack),free(b->stack),1));
 }
