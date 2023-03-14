@@ -12,11 +12,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <limits.h>
-# include "push_swap.h"
-# include "Libft/header/libft.h"
-# include "Libft/header/ft_printf.h"
+# include "../Libft/header/libft.h"
+# include "../Libft/header/ft_printf.h"
 # include <ctype.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -48,8 +48,8 @@ int ft_min(int count, ...);
 int ft_abs(int n);
 void choose_rotate(t_stack *s, int nb_rev);
 void error_manager(t_stack *a, t_stack *b, int error);
-void push(t_stack *stackfrom, t_stack *stackto);
-void swap(t_stack *stack);
+void push(t_stack *stackfrom, t_stack *stackto, int i);
+void swap(t_stack *stack,int i);
 void rotate(t_stack *stack,int rr);
 void rev_rotate(t_stack *s,int rrr);
 int nb_rev(int index, int top);
@@ -59,5 +59,8 @@ void set_min_max(t_stack *b,long long int element);
 void apply_rotate(t_stack *a,t_stack *b,t_moves *moves);
 void short_sort(t_stack *a);
 void short_sort2(t_stack *a,t_stack *b);
+void init_stack(t_stack *a, t_stack *b,int size,int *error);
+void check_stack(t_stack *a, int *error);
+int atoi_error(char *str,int *error);
 
 #endif

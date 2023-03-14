@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: therodri <therodri@student.42.fr>          +#+  +:+       +#+         #
+#    By: wayden <wayden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 20:56:08 by therodri          #+#    #+#              #
-#    Updated: 2022/12/10 23:41:25 by therodri         ###   ########.fr        #
+#    Updated: 2023/03/14 09:56:31 by wayden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,6 +117,6 @@ clean:
 	@rm -f $(OBJS)
 fclean: clean
 	@rm -f $(NAME)
-re: clean all
+re: fclean all
 
 .PHONY:

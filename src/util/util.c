@@ -6,11 +6,11 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:24:48 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/13 13:14:21 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/14 09:49:13 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../header/push_swap.h"
 
 int ft_abs(int n)
 {
@@ -76,16 +76,10 @@ void print_stacks(t_stack *a, t_stack *b)
 
 void error_manager(t_stack *a, t_stack *b, int error)
 {
-    (error == 1 && ft_printf("Error malloc stack a\n") 
-    && (free(a->stack),1));
-    (error == 2 && ft_printf("Error malloc stack b\n") 
-    && ((free(a->stack),1),free(b->stack),1));
-    (error == 3 && ft_printf("Error Int Overflow in Atoi\n") 
-    && (free(a->stack),free(b->stack),1));
-    (error == 4 && ft_printf("Error not only numerical arguments\n") 
-    && (free(a->stack),free(b->stack),1));
-    (error == 5 && ft_printf("Error duplicate number\n") 
-    && (free(a->stack),free(b->stack),1));
-    (error == 6 && ft_printf("Stack a already sorted\n") 
-    && (free(a->stack),free(b->stack),1));
+    (error == 1 && write(2,"Error\n",6) && (free(a->stack),1));
+    (error == 2 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
+    (error == 3 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
+    (error == 4 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
+    (error == 5 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
+    (error == 6 && (free(a->stack),free(b->stack),1));
 }

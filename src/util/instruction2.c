@@ -6,11 +6,11 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:43:04 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/13 12:43:41 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/14 09:48:04 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../header/push_swap.h"
 
 void do_rr(t_stack *a, t_stack *b,t_moves *moves)
 {

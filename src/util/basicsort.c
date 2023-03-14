@@ -6,11 +6,11 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:19:16 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/13 15:29:31 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/14 09:48:11 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../header/push_swap.h"
 
 static int where_to(int a, t_stack *b)
 {
@@ -91,17 +91,17 @@ static void order_b(t_stack *b)
 void basic_sort(t_stack *a,t_stack *b)
 {
     t_moves moves;
-    push(a,b);
-    push(a,b);
+    push(a,b,0);
+    push(a,b,0);
     set_min_max(b,2147483648);
     while(a->top >= 0)
     {
         find_index(a,b,&moves);
         apply_rotate(a,b,&moves);
-        push(a,b);
+        push(a,b,0);
         set_min_max(b,b->stack[b->top]);
     }
     order_b(b);
     while(b->top >= 0)
-        push(b,a);
+        push(b,a,0);
 }

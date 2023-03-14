@@ -10,30 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../header/push_swap.h"
 
-void push(t_stack *from, t_stack *to)
+void push(t_stack *from, t_stack *to,int i)
 {
-    int i;
-
-    i = -1;
     to->stack[to->top+1] = from->stack[from->top];
     from->stack[from->top] = 0;
     from->top--;
     to->top++;
-    ft_printf("p%c",to->letter);
-    ft_printf("\n");
-    i = -1;
+    if(i == 0)
+    {
+        ft_printf("p%c",to->letter);
+        ft_printf("\n");
+    }
 }
 
-void swap(t_stack *s)
+void swap(t_stack *s,int i)
 {
     int temp;
     temp = s->stack[s->top];
     s->stack[s->top] = s->stack[s->top - 1];
     s->stack[s->top - 1] = temp;
-    ft_printf("s%c",s->letter);
-    ft_printf("\n");
+    if(i == 0)
+    {
+        ft_printf("s%c",s->letter);
+        ft_printf("\n");
+    }  
 }
 
 void rotate(t_stack *s,int rr)
