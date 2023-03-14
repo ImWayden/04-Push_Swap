@@ -6,7 +6,7 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:38:15 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/14 09:47:56 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/14 10:43:29 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int atoi_error(char *str,int *error)
     res = 0;
     if(str[++i] == '+' || str[i] == '-')
     {
-        if (str[i] == '-')
-            signe*=-1; 
+        if (str[i++] == '-')
+            signe*=-1;
     }    
     while (ft_isdigit(str[i]))   
     {
@@ -34,7 +34,7 @@ int atoi_error(char *str,int *error)
         else if (signe == -1 && (res > INT_MAX / 10 
             || (res == INT_MAX / 10 && str[i] - '0'> -(INT_MIN % 10))))
             return(*error = 3, 1);
-        res = res * 10 + str[i++] - 48;
+        res = res * 10 + str[i++] - 48 ;
     }
     if(str[i] != '\0')
         return(*error = 4,0);
@@ -54,7 +54,7 @@ void check_stack(t_stack *a, int *error)
         j = i+1;
         if(a->stack[j] < a->stack[i])
             same++; 
-        while(j <= a->top)
+        while(j < a->top)
         {
             if(a->stack[j] == a->stack[i])
             {

@@ -6,7 +6,7 @@
 /*   By: wayden <wayden@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:24:48 by wayden            #+#    #+#             */
-/*   Updated: 2023/03/14 09:49:13 by wayden           ###   ########.fr       */
+/*   Updated: 2023/03/14 10:45:31 by wayden           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void print_stacks(t_stack *a, t_stack *b)
 void error_manager(t_stack *a, t_stack *b, int error)
 {
     (error == 1 && write(2,"Error\n",6) && (free(a->stack),1));
-    (error == 2 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
+    (error == 2 && write(2,"Errorn",6) && (free(a->stack),free(b->stack),1));
     (error == 3 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
     (error == 4 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
     (error == 5 && write(2,"Error\n",6) && (free(a->stack),free(b->stack),1));
