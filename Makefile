@@ -6,7 +6,7 @@
 #    By: wayden <wayden@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 09:08:09 by wayden            #+#    #+#              #
-#    Updated: 2023/03/14 10:10:24 by wayden           ###   ########.fr        #
+#    Updated: 2023/03/14 10:18:08 by wayden           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,11 @@ CHECKER = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
 
 UTILFILES =  util util2 instruction1 instruction2 shortsort basicsort
 PSWFILES = main 
 CHECKERFILES = checker
 LIBFTFILES = libft
-
-PSW = norelink_psw
-CHECK = norelink_check
-UTIL = norelink_util
 
 OBJS_DIR = ./
 UTIL_DIR = ./src/util/
@@ -37,8 +32,6 @@ LIBFT_SRC = $(addprefix $(LIBFT_DIR), $(addsuffix .a, $(LIBFTFILES)))
 PSW_SRC = $(addprefix $(PSW_DIR), $(addsuffix .c, $(PSWFILES)))
 UTIL_SRC = $(addprefix $(UTIL_DIR), $(addsuffix .c, $(UTILFILES)))
 CHECKER_SRC = $(addprefix $(CHECKER_DIR), $(addsuffix .c, $(CHECKERFILES)))
-
-RULES = psw check libft
 
 all: $(PUSHSWAP) $(CHECKER)
 
